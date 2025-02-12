@@ -137,8 +137,8 @@
         // Render a file (PDF)
         async function renderIssue(issueNumber) {
             updateURL(issueNumber); // Update URL when issue is selected
-            const filePath = `previous/Local Icenian News ${issueNumber}.pdf`;
-            fileTitle.textContent = `Local Icenian News ${issueNumber}`;
+            const filePath = `previous/issue${issueNumber}.pdf`;
+            fileTitle.textContent = `The Diamond Chronicler ${issueNumber}`;
             fileContent.innerHTML = '';
     
             try {
@@ -186,7 +186,7 @@
         function populateFileList(files) {
             files.forEach(file => {
                 const li = document.createElement('li');
-                const issueNumber = removeExtension(file.name).replace('Local Icenian News ', '');
+                const issueNumber = removeExtension(file.name).replace('issue', '');
                 li.textContent = `Issue ${issueNumber}`; // Display as "Issue X.X"
                 li.onclick = () => renderIssue(issueNumber);
                 fileList.appendChild(li);
